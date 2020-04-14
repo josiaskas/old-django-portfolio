@@ -1,0 +1,360 @@
+.has-text-orange{
+    color: #d82a00;
+}
+
+.has-text-bleu{
+    color: #071d97;
+}
+.bordure-bas-bleu{
+    display: inline-block;
+    border-bottom: 4px solid #071d97;
+}
+.bordure-bas-orange{
+    display: inline-block;
+    border-bottom: 4px solid #d82a00;
+}
+.bordure-simple{
+    border-right: 2px solid grey;
+    border-left: 2px solid grey;
+}
+.bouton-bleu{
+    background-color: rgba(255,255,255,.3);
+    border: 2px solid #071d97;
+    border-radius: 60pt;
+    padding: 0.5rem;
+    text-decoration:none;
+}
+.bouton-bleu a{
+    color:#071d97;
+    text-decoration:none;
+}
+.big-space{
+    margin-top:6rem;
+}
+
+.droite{
+    float:right;
+}
+.effet-orange{
+    text-decoration:none;
+    color:white;
+}
+.effet-orange:hover{
+    color:#d82a00;
+
+}
+
+.espace-bas{
+    padding-bottom: 1rem;
+    line-height: 1.5rem;
+}
+
+
+
+/* section du menu */
+.navbar{
+    background-color: rgba(0,0,0,0.9);
+}
+nav{
+    list-style-type: none;
+}
+#menu{
+    margin-top: 3.7rem;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 70;
+    overflow: hidden;
+    background-color:#01024e;
+    opacity: 0.90;
+    color: white;
+    padding-top: 4rem;
+    padding-right: 15rem;
+}
+@media only screen and (max-width: 600px) {
+    #menu{
+        margin-top: 3.15rem;
+        padding-top: 0rem;
+        padding-right: 0rem;
+        opacity: 0.90;
+    }
+} 
+@media only screen and (min-width: 600px) {
+    #menu{
+        margin-top: 3rem;
+        padding-top: 4rem;
+        padding-right: 5rem;
+    }
+}
+@media only screen and (min-width: 768px) {
+    #menu{
+        margin-top: 3.1rem;
+        padding-top: 6rem;
+        padding-right: 15rem;
+    }
+}
+@media only screen and (min-width: 992px) {
+    #menu{
+        margin-top: 3.5rem;
+        padding-top: 6rem;
+        padding-right: 15rem;
+    }
+}    
+.menu-item a{
+    color:white;
+    font-weight: bolder;
+    opacity: 1;
+}
+.menu-item:hover{
+    -webkit-animation: swing 1000ms ease-out; 
+        animation: swing 1000ms ease-out;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+        
+}
+.contact-network
+{
+    text-decoration: none;
+    display:flex;
+}
+.contact-network li
+{
+    padding-right: 0.5rem;
+}
+
+.centrer-texte
+{
+    text-align: center;
+}
+.objet-centrer{
+    padding-left:15%;
+    padding-right:15%;
+}
+
+
+/* hero section */
+
+#Apropos{
+
+    background-image: url(/public/img/astronaute-on-arange-blue-min_1.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+}
+#Apropos .hero-body{
+    background-color: rgba(0,0,0,.3);
+}
+#Skills .hero-body{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+#Clickcontact{
+    background-image: url(/public/img/fusee2.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#Clickcontact .hero-body{
+    background-color: rgba(0,0,0,0.3);
+    padding-left:15%;
+}
+#Project .container{
+    text-align:center;
+}
+#Project .container h2{
+    font-weight: bolder;
+    margin-bottom: 2rem;
+}
+
+
+.boite-projet{
+    text-align:center;
+    font-family:'Futura PT Book','Arial Unicode MS','Arial Black';
+    transition: all 0.15s ease-in ;
+    background-color: #F2F2F2;
+    margin:1rem;
+}
+.boite-projet:hover{
+    box-shadow: 1px 2px 3px 0 rgba(255, 255, 255,1), 1px 2px 3px 0 rgba(7, 29, 151,1);
+}
+
+
+#Pied{
+    background-color: rgba(7, 29, 151,1);
+}
+
+
+#gameCenterHero{
+
+    background-image: url(800px-Android_TV_game_controller.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#gameCenterHero .hero-body{
+    background-color: rgba(0,0,0,.3);
+}
+/* Transitions*/
+
+@-webkit-keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(2rem);
+        transform: translateX(2rem);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-2rem);
+       transform: translateX(-2rem);
+    } 
+    50%
+    {
+        -webkit-transform: translateX(1rem);
+        transform: translateX(1rem);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-1rem);
+        transform: translateX(-1rem);
+    }
+    80%
+    {
+        -webkit-transform: translateX(0.5rem);
+        transform: translateX(0.5rem);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(2rem);
+        transform: translateX(2rem);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-2rem);
+        transform: translateX(-2rem);
+    }
+    50%
+    {
+        -webkit-transform: translateX(1rem);
+        transform: translateX(1rem);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-1rem);
+        transform: translateX(-1rem);
+    }
+    80%
+    {
+        -webkit-transform: translateX(0.5rem);
+        transform: translateX(0.5rem);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+
+
+
+
+/*!
+ * Hamburger
+ * @description Tasty CSS-animated hamburger css code 
+ * @author Jonathan Suh @jonsuh
+ * @link https://github.com/jonsuh/hamburgers
+ */
+ .hamburger {
+    padding: 15px 15px;
+    display: inline-block;
+    cursor: pointer;
+    transition-property: opacity, filter;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    font: inherit;
+    color: inherit;
+    text-transform: none;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    overflow: visible; }
+    .hamburger:hover {
+      opacity: 0.7; }
+    .hamburger.is-active:hover {
+      opacity: 0.7; }
+    .hamburger.is-active .hamburger-inner,
+    .hamburger.is-active .hamburger-inner::before,
+    .hamburger.is-active .hamburger-inner::after {
+      background-color: #d82a00; }
+  
+  .hamburger-box {
+    width: 40px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+}
+    
+  
+  .hamburger-inner {
+    display: block;
+    top: 50%;
+    margin-top: -2px; }
+    .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+      width: 40px;
+      height: 4px;
+      background-color:white;
+      border-radius: 4px;
+      position: absolute;
+      transition-property: transform;
+      transition-duration: 0.15s;
+      transition-timing-function: ease; }
+    .hamburger-inner::before, .hamburger-inner::after {
+      content: "";
+      display: block; }
+    .hamburger-inner::before {
+      top: -10px; }
+    .hamburger-inner::after {
+      bottom: -10px;
+      background-color: white;
+     }
+/*
+   * Emphatic
+   */
+   .hamburger--emphatic {
+    overflow: hidden; }
+    .hamburger--emphatic .hamburger-inner {
+      transition: background-color 0.125s 0.175s ease-in; }
+      .hamburger--emphatic .hamburger-inner::before {
+        left: 0;
+        transition: transform 0.125s cubic-bezier(0.6, 0.04, 0.98, 0.335), top 0.05s 0.125s linear, left 0.125s 0.175s ease-in; }
+      .hamburger--emphatic .hamburger-inner::after {
+        top: 10px;
+        right: 0;
+        transition: transform 0.125s cubic-bezier(0.6, 0.04, 0.98, 0.335), top 0.05s 0.125s linear, right 0.125s 0.175s ease-in; }
+    .hamburger--emphatic.is-active .hamburger-inner {
+      transition-delay: 0s;
+      transition-timing-function: ease-out;
+      background-color: transparent !important; }
+      .hamburger--emphatic.is-active .hamburger-inner::before {
+        left: -80px;
+        top: -80px;
+        transform: translate3d(80px, 80px, 0) rotate(45deg);
+        transition: left 0.125s ease-out, top 0.05s 0.125s linear, transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1); }
+      .hamburger--emphatic.is-active .hamburger-inner::after {
+        right: -80px;
+        top: -80px;
+        transform: translate3d(-80px, 80px, 0) rotate(-45deg);
+        transition: right 0.125s ease-out, top 0.05s 0.125s linear, transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1); }
+
