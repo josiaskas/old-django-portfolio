@@ -1,0 +1,32 @@
+{% load static %}
+    {% for project in projects %}
+    <div class="column is-one-third">
+        <div class="card">
+            <div class="card-image">
+                <figure class="image">
+                    <img src="{% static 'projects/img/reliureartmercier.png' %}" alt="aperçu du site">
+                </figure>
+            </div>
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-left">
+                        <figure class="image is-48x48">
+                            <img src="http://reliuredartmercier.com/wp-content/uploads/2019/02/cropped-ReliureLogoBlack-2-2-192x192.png" alt="logo compagnie">
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <p class="title is-4">Reliure d'Art Mercier</p>
+                        <p class="subtitle is-6"><a href="http://reliuredartmercier.com/">reliuredartmercier.com</a></p>
+                    </div>
+                </div>
+                          
+                <div class="content">
+                    A simple website made with Wordpress for a beautiful company in Montréal.
+                    <a href="#">#wordpress</a> <a href="#">#Css</a>
+                    <br />
+                    <time datetime="2019-9-1">Winter 2019</time>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}

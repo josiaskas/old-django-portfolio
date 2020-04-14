@@ -1,8 +1,8 @@
     <header>
         <div class="navbar is-fixed-top">
             <div class="navbar-brand">
-                <a class="navbar-item has-text-white is-size-4" href="#">
-                    JOSIAS 👨🏾‍🚀
+                <a class="navbar-item has-text-white is-size-4" href="{% url 'index' %}">
+                    JOSIAS Kasongo 👨🏾‍🚀
                 </a>
                 <a class="navbar-burger" aria-label="menu" aria-expanded="false" >
                     <button class="hamburger hamburger--emphatic" type="button">
@@ -30,11 +30,11 @@
                 <div class="level-right ">
                     <div>
                         <nav role="navigation">
-                                <li class="menu-item is-size-1"><a href="#Apropos">HOME</a></li>
-                                <li class="menu-item is-size-2"><a href="#Skills">Skills && tools</a></li>
-                                <li class="menu-item is-size-1"><a href="#Project">Project</a></li>
-                                <li class="menu-item is-size-1"><a href="#Passions">Passions</a></li>
-                                <li class="menu-item is-size-1"><a href="#">Contact</a></li>
+                                <li class="menu-item is-size-1"><a href="{% url 'index' %}#Apropos">HOME</a></li>
+                                <li class="menu-item is-size-2"><a href="{% url 'index' %}#Skills">Skills && tools</a></li>
+                                <li class="menu-item is-size-1"><a href="{% url 'projects.index' %}">Project</a></li>
+                                <li class="menu-item is-size-1"><a href="{% url 'index' %}#Passions">Passions</a></li>
+                                <li class="menu-item is-size-1"><a href=" {% url 'contact' %}">Contact</a></li>
                         </nav>
                         <br /><br />
                         <ul class="contact-network">

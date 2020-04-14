@@ -136,7 +136,7 @@ nav{
 
 #Apropos{
 
-    background-image: url(https://gardendiscussions.com/storage/portfolio/astronaute-on-arange-blue-min_1.jpeg);
+    background-image: url(/public/img/astronaute-on-arange-blue-min_1.jpeg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -152,7 +152,7 @@ nav{
     
 }
 #Clickcontact{
-    background-image: url(https://gardendiscussions.com/storage/portfolio/fusee2.jpeg);
+    background-image: url(/public/img/fusee2.jpeg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

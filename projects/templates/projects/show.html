@@ -1,0 +1,29 @@
+
+{% extends 'layout/main.html' %}
+{% load static %}
+{% block title %} {{project.name}} {% endblock %}
+{% block content %}
+<section  class="hero is-fullheight">
+    <div class="hero-head">
+    </div>
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <h1 class="title"> {{ project.name }} </h1>
+                    <time> Fait le {{project.realease_date}}</time>
+                    <nav class="breadcrumb" aria-label="breadcrumbs">
+                        <ul>
+                            <li><a href="{% url 'projects.index' %}">portfolio</a></li>
+                            <li><a href="#">{{ project.name }}</a></li>
+                        </ul>
+                    </nav>
+                    <div class="content">
+                        {{project.content}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
