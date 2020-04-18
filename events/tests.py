@@ -39,6 +39,7 @@ class ListeningTestCase(TestCase):
             'name': 'Admin tesing system',
             'budget' : 300,
             'project_type': 'Testing if admin can listen',
+            'details' : 'details'
         }
         bruit.update_observers(**mail)
         state = bruit.observers_states
@@ -72,6 +73,7 @@ class SendingMailTestCase(TestCase):
             'name': 'Admin tesing system',
             'budget' : 300,
             'project_type': 'Testing admin mail sending',
+            'details':'test'
         }
         bruit.update_observers(**mail)
         state = bruit.observers_states

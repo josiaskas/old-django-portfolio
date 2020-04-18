@@ -53,7 +53,7 @@ class MailAdminNotification(Observer):
         self.work_done = False
         pass
 
-    def update(self, *args, name=False, budget=False, project_type= False, **kwargs):
+    def update(self, *args, name=False, budget=False, project_type= False,details ='', **kwargs):
         
         #initialisation of the observer work
         self.state[1] = 'listening'
@@ -64,20 +64,21 @@ class MailAdminNotification(Observer):
             verifyed = False
 
         if verifyed:
-            html = self.buildHtml(name, budget, project_type)
+            html = self.buildHtml(name, budget, project_type, details)
             self.send(self.ADMIN_MAIL, html)
         else :
             print('can\'t send the Admin mail')
 
         return self.work_done
 
-    def buildHtml(self,name, budget, project_type):
+    def buildHtml(self,name, budget, project_type,details):
         context ={
            'name' : name,
            'project_type' : project_type,
-           'budget':budget
+           'budget':budget,
+           'details':details
         }
-        html_message = render_to_string('ThanksMail.html',context)
+        html_message = render_to_string('adminMail.html',context)
         plain_message = strip_tags(html_message)
         return (html_message, plain_message)
 
@@ -118,7 +119,7 @@ class MailNotification(Observer):
             self.send(email, html)
         else :
             print('can\'t send the mail')
-            
+
         return self.work_done
 
     def buildHtml(self, name, budget, project_type):
@@ -127,7 +128,7 @@ class MailNotification(Observer):
            'project_type' : project_type,
            'budget':budget
         }
-        html_message = render_to_string('ThanksMail.html',context)
+        html_message = render_to_string('thanksMail.html',context)
         plain_message = strip_tags(html_message)
         return (html_message,plain_message)
 

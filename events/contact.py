@@ -6,7 +6,7 @@ class ContactMadeEvent(EventHandler):
     """ An Event, Contact made. that send via Mail message to the admin when a contact is made
         we can use other pipeline in the future
     """
-    def __init__(self, name=False,email=False,budget=False,project_type=False):
+    def __init__(self, name=False,email=False,budget=False,project_type=False,details=''):
         #activating all the observers of the event
         self.activate()
 
@@ -15,7 +15,8 @@ class ContactMadeEvent(EventHandler):
             'name': name,
             'budget' : budget,
             'project_type': project_type,
-            'email' : email
+            'email' : email,
+            'details' : details
         }
 
         #making the event
@@ -23,7 +24,7 @@ class ContactMadeEvent(EventHandler):
         
         pass
     def via(self):
-        return ['admin_mail', 'console'] 
+        return ['mail','admin_mail' ,'console'] 
 
 
 

@@ -37,6 +37,7 @@ def contact(request):
             amount = form.cleaned_data['amount']
             project_type = form.cleaned_data['project_type']
             details = form.cleaned_data['details']
+
             #we create a contact
             Contact.objects.create(
                 name=name,
@@ -49,9 +50,11 @@ def contact(request):
                 name=name,
                 email=email,
                 budget=amount,
-                project_type=project_type
+                project_type=project_type,
+                details=details
             )
-
+            #we put to zero the form
+            form = ContactForm
         else:
             context['valid_form'] = False
             context['errors'] = form.errors.items()
