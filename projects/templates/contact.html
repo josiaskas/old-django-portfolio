@@ -13,14 +13,14 @@
                         {% if valid_form is True %}
 
                         <div class="notification is-info">
-                            <button class="delete"></button>
+                            
                             Thank you !!
                             
                         </div>
                         {% endif %}
                         {% if valid_form is False %}
                         <div class="notification is-danger">
-                            <button class="delete"></button>
+                            
                                 {% for key, error in  errors %}
                                   {% autoescape off %}
                                     {{ error }}
