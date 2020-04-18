@@ -2,6 +2,11 @@ from django.shortcuts import render, get_object_or_404
 from .models import Project, Article, Podcast, Book, Contact
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .forms import ContactForm
+
+#event
+from events.contact import ContactMadeEvent
+
+
 # Create your views here.
 
 def index(request):
@@ -32,14 +37,24 @@ def contact(request):
             amount = form.cleaned_data['amount']
             project_type = form.cleaned_data['project_type']
             details = form.cleaned_data['details']
+
             #we create a contact
             Contact.objects.create(
                 name=name,
                 email=email,
                 amount=amount,
                 project_type=project_type,
-                details=details)
-            print(f' makin a contact nom du contact : {name} mail : {email}')
+                details=details
+            )
+            ContactMadeEvent(
+                name=name,
+                email=email,
+                budget=amount,
+                project_type=project_type,
+                details=details
+            )
+            #we put to zero the form
+            form = ContactForm
         else:
             context['valid_form'] = False
             context['errors'] = form.errors.items()
@@ -50,8 +65,7 @@ def contact(request):
 
     return render(request,'contact.html',context)
 
-def projectsIndex(request):
-    
+def projectsIndex(request): 
     query = request.GET.get('query')
     message = 'no search'
     search_succes = False
@@ -108,18 +122,3 @@ def projectsShow(request,slug):
         'project' : project,
     }
     return render(request,'projects/show.html',context)
-
-def search(request):
-    query = request.GET.get('query')
-    if not query:
-        albums = Album.objects.all()
-    else:
-        albums = Album.objects.filter(title__icontains=query)
-    if not albums.exists():
-        albums = Album.objects.filter(artists__name__icontains=query)
-    title = "Résultats pour la requête %s"%query
-    context = {
-        'albums': albums,
-        'title': title
-    }
-    return render(request, 'store/search.html', context)

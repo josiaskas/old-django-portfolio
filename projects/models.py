@@ -35,10 +35,9 @@ class Project(models.Model):
 class Contact(models.Model):
 
     PROJECTS_TYPES = (
-        ('web_app','Web Appsss'),
-        ('web_site','Web site'),
-        ('ios_app','Ios App'),
-        ('desktop_app','Desktop App')
+        ('web app','Web App'),
+        ('web site','Web site'),
+        ('Ios app','Ios App'),
     )
     name = models.CharField(verbose_name="Nom",max_length=60)
     email = models.EmailField(verbose_name="Email adress",max_length=254)
