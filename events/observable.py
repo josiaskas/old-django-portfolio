@@ -50,8 +50,6 @@ class EventHandler(Observable):
         """ Trigger the notification via somme ways writen in gates
         """ 
         self.update_observers(*args, **kwargs)
-
-        print('counting trigeger call ' )
         pass
 
     def activate(self):
