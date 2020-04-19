@@ -1,0 +1,173 @@
+{% extends 'layout/main.html' %}
+{% load static %}
+{% block title %}Codeur ,Developpeur Web Full-stack & Predicateur{% endblock %}
+{% block content  %}
+
+    <section id="Apropos" class="hero is-fullheight" role="banner">
+            <div class="hero-body">
+              <div class="container">
+                <h1 class="title is-size-1 has-text-white">
+                    Coding, <br/> Full-stack Web Development<br/> 
+                    <span class="bordure-bas-bleu">& Preacher</span>
+                </h1>
+                
+                <h2 class="subtitle has-text-white">
+                    I'm a lover of coding, unknown territories and everything related to heaven. <br />
+                    Your go-to guy if you have a website or software project. 
+                </h2>
+                <br/>
+                <a class="button has-text-bleu is-outlined" href="{% url 'contact' %}">Let's Get started</a>
+              </div>
+            </div>
+    </section>
+    <section id="Skills" class="hero is-medium">
+            <div class="hero-body">
+              <div class="container">
+                <div class="columns is-centered">
+
+                    <div class="column is-one-third">
+                        <div class="container centrer-texte">
+                            <h2 class="subtitle bordure-bas-orange is-size-3">Languages</h2>
+
+                            <ul class="bordure-simple">
+                                <li>Php : Laravel</li> 
+                                <li>JavaScript : Vue.js</li> 
+                                <li>Python : Django</li> 
+                                <li>Swift</li>  
+                                <li>C++</li>
+                                <li>SASS : Boostrap / Bulma</li> 
+                                <li>Tongues <i class="fa fa-fire"> </i></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="column is-one-third">
+                            <div class="container centrer-texte">
+                                <h2 class="subtitle bordure-bas-orange is-size-3">Tools</h2>
+                                <ul class="bordure-simple">
+                                    <li><i class="fab fa-git"></i> and <i class="fab fa-github"></i> </li>
+                                    <li>Docker and containers<i class="fab fa-docker"></i></li>  
+                                    <li>Lamp/Mamp <i class="fas fa-server"></i></li> 
+                                    <li>Nginx <i class="fas fa-server"></i></li>
+                                    <li>Node.js</li>  
+                                    <li>Azure cloud</li>  
+                                    <li>Qt (long time ago)</li>
+                                </ul>
+                            </div>
+                    </div>
+                    <div class="column is-one-third">
+                            <div class="container centrer-texte">
+                                <h2 class="subtitle bordure-bas-orange is-size-3">Skills</h2>
+                                <ul class="bordure-simple">
+                                    <li>Agile</li>
+                                    <li>CI / CD</li>
+                                    <li>DevOps culture</li> 
+                                    <li>Take time to laugh -> <a href="https://xkcd.com/">Xkdc</a>  </li> 
+                                    <li>Technical advisor</li>
+                                    <li>Bible discussions</li> 
+                                    <li>Manga discussions</li>  
+                                    <li>Podcasting</li>  
+                                </ul>
+                            </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+    </section>
+    <section id="Clickcontact" class="hero is-medium">
+            <div class="hero-body">
+              <div class="container">
+                    <p class="is-size-5 has-text-white espace-bas">
+                        Feel free to get in touch by any means of communication.<br />
+                        I really enjoy Back-end development whether you need to develop a full product <br />
+                        or hire a new member to your team. <br />
+                    </p>
+                    <div></div>
+                    <a class="button has-text-bleu is-outlined" href="{% url 'contact' %}">Start a project or Hire me</a>
+              </div>
+            </div>
+    </section>
+    <section id="Project" class="hero is-medium">
+        <div class="hero-body">
+            <div class="container">
+                <h2 class="title is-size-1">LAST PROJECT</h2>
+                <div class="columns is-multiline ">
+                        {% for project in projects %}
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src="{% static project.picture %}" alt="aperçu du site">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <figure class="image is-48x48">
+                                                <img src="{{project.logo_picture}}" alt="logo compagnie">
+                                            </figure>
+                                        </div>
+                                        <div class="media-content">
+                                            <p class="title is-4"> {{project.name}}</p>
+                                            <p class="subtitle is-6"><a href="{% url 'projects.show' project.slug  %}">Voir le projet</a></p>
+                                        </div>
+                                    </div>
+                                            
+                                    <div class="content">
+                                        {{project.excerpt }}
+                                        <br />
+                                        {% for tag in project.tags.all %}
+                                        <a href="#">#{{tag.name}}</a>
+                                        {% endfor %}
+                                        <br />
+                                        <time datetime="{{project.realease_date }}">{{project.realease_date }}</time>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Passions" class="hero">
+        <div class="hero-body">
+            <div class="container">
+                <h2 class="title is-size-1">PASSIONS AND SOME COOL STUFF 👌🏾 </h2>
+                <h3 class="subtitle is-size-6"> Updated everytime i change my mind </h3>
+                <div class="columns">
+                  <div class="column is-one-third">
+                    <h3 class="subtitle bordure-bas-orange is-size-3"> Podcasts </h3>
+                    {% for podcast  in podcasts %}
+                    <div>
+                      {{podcast.embed_code|safe}}
+                    </div> 
+                    {% endfor %}
+
+                  </div>
+                  <div class="column is-one-third">
+                    <h3 class="subtitle bordure-bas-orange is-size-3"> Books </h3>
+                    <div class="columns is-multiline is-gapless">
+                    {% for book  in books %}
+                      <div class="column is-half">{{book.embed_code|safe}}</div>
+                    {% endfor %}
+                    </div> 
+                  </div>
+                  <div class="column is-one-third">
+                    <h3 class="subtitle bordure-bas-orange is-size-3"> Articles </h3>
+                    {% for article  in articles %}
+                    <div class="article">
+                                <h3 class="title is-size-4"> {{article.title}}</h3>
+                                <h4 class="subtitle is-size-6">@{{article.author}}</h4>
+                                <p class="content">{{article.content}}</p>                               
+                                <a href="{{article.link}}" class="button is-link ">Go read the article</a> 
+                                <hr >
+                    </div> 
+                    {% endfor %}
+
+                  </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock  %}

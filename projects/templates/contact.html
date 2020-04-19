@@ -1,0 +1,113 @@
+{% extends 'layout/main.html' %}
+{% block title %} Contactez-moi {% endblock %}
+{% block content %}
+    <section id="contactForm" class="hero is-fullheight">
+        <div class="hero-body">
+
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column is-half">
+                        <h1 class="title">
+                            I’m excited to learn about your project.
+                        </h1>
+                        {% if valid_form is True %}
+
+                        <div class="notification is-info">
+                            
+                            Thank you !!
+                            
+                        </div>
+                        {% endif %}
+                        {% if valid_form is False %}
+                        <div class="notification is-danger">
+                            
+                                {% for key, error in  errors %}
+                                  {% autoescape off %}
+                                    {{ error }}
+                                  {% endautoescape %}
+                                {% endfor %}
+                        </div>
+                        {% endif %}
+
+
+                    </div>
+                </div>
+                <div class="columns is-centered">
+                    <div class="column is-half">
+                        <form class="form" action="{% url 'contact' %}" method="POST">
+                           {% csrf_token %}
+                            <div class="columns is-centered">
+                                <div class="column is-half">                    
+                                    <div class="field">
+                                        <label class="label">Name</label>
+                                        <div class="control">
+                                            {{form.name}}
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column is-half">                    
+                                        <div class="field">
+                                            <label class="label">Email</label>
+                                            <div class="control has-icons-left">
+                                                {{form.email}}
+                                                <span class="icon is-small is-left">
+                                                        <i class="fas fa-envelope"></i>
+                                                </span>
+                                            </div>
+
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="columns is-centered">
+                                    <div class="column is-half">                    
+                                        <div class="field">
+                                            <label class="label">Type of project</label>
+                                            <div class="select  is-warning is-fullwidth">
+                                                {{form.project_type}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column is-half">                    
+                                            <div class="field">
+                                                <label class="label">Budget</label>
+                                                <div class="control has-icons-left">
+                                                    {{form.amount}}
+                                                    <span class="icon is-small is-left">
+                                                            <i class="fas fa-hand-holding-usd"></i>
+                                                    </span>
+                                                </div>
+
+                                            </div>
+                                    </div>
+                            </div>
+                            <div class="columns is-centered">
+                                <div class="column">
+                                    <div class="field">
+                                        <div class="control">
+                                            <label class="label">Additional details</label>
+                                            {{form.details}}
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="columns is-centered">
+                                <div class="column is-one-third">
+                                    <div class="field">
+                                        <div class="control">
+                                            <input class="button is-primary is-light is-medium" type="submit">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock  %}

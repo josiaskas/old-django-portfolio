@@ -1,0 +1,85 @@
+{% extends 'layout/main.html' %}
+{% load static %}
+{% block title %} Les projet {% endblock %}
+{% block content %}
+<section class="hero is-fullheight">
+    <div class="hero-head">
+        <div class="content"><br/></div>
+    </div>
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-6">
+                    <h1 class="title has-text-centered"> Projets Freelance et personnels</h1>
+                    <form  action="{% url 'projects.index' %}" class="column">
+                        <div class="field">
+                            <div class="control  has-icons-right">
+                                <input class="input" name="query" type="search" placeholder="Chercher un projet">
+                                <span class="icon is-small is-right">
+                                    <i class="fas fa-search "></i>
+                                </span>
+                            </div>
+                        </div>
+                        {% if search_succes %}
+                            <p class="is-size-6 has-text-success">{{message}}</p>
+                        {% endif %}
+                        {% if message == 'no result' %}
+                            <p class="is-size-6 has-text-danger">no result with '{{query}}'</p>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-12">
+                    <div class="columns is-multiline " role="main">
+                        {% for project in projects %}
+                        <div class="column is-one-third">
+                            <div class="card">
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src="{% static project.picture %}" alt="aperçu du site">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <figure class="image is-48x48">
+                                                <img src="{{project.logo_picture}}" alt="logo compagnie">
+                                            </figure>
+                                        </div>
+                                        <div class="media-content">
+                                            <p class="title is-4"> {{project.name}}</p>
+                                            <p class="subtitle is-6"><a href="{{project.url}}">Voir le projet</a></p>
+                                        </div>
+                                    </div>
+                                            
+                                    <div class="content">
+                                        {{project.excerpt }}
+                                        <br />
+                                        {% for tag in project.tags.all %}
+                                        <a href="#">#{{tag.name}}</a>
+                                        {% endfor %}
+                                        <br />
+                                        <a class="has-text-centered button is-link" href="{% url 'projects.show' slug=project.slug %}">Plus de détail</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="columns is-centered">
+                <nav class="pagination" role="pagination" aria-label="pagination">
+                        {% if projects.has_previous %}
+                            <a class="pagination-next" href="?page={{ projects.previous_page_number }}">Previous</a>
+                        {% endif %}
+                        {% if projects.has_next %}
+                            <a class="pagination-next" href="?page={{ projects.next_page_number }}">Next page</a>
+                        {% endif %}
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
