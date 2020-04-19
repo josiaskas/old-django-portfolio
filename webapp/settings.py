@@ -74,7 +74,7 @@ WSGI_APPLICATION = 'webapp.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-if sys.argv[1] == 'test':
+if sys.argv[1] == 'test' or DEBUG:
 
     DATABASES = {
         'default': {
@@ -134,9 +134,9 @@ USE_TZ = True
 STATIC_URL = '/public/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'public')
+    os.path.join(BASE_DIR,'static')
 ]
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'public/')
 
 #Mail settings
 
