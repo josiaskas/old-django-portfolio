@@ -3,18 +3,18 @@
 
 My personal portfolio project made with Django and bulma for Css
 
-##Django
+## Django
 
-*Event Handler (made by me) 
+- Event Handler (made by me) 
 right now just for ContactMeEvent
-* Observers
+- Observers
 To listen to anything on the site, i don't like google stuff so i put them only one the backend ;) 
 Nobody will know what we cook.
 
-*Pipelines - Cannaux : 
+- Pipelines - Cannaux : 
 J'essaye de mettre en place plusieur moyen par lesquels les observateur peuvent comuniquer a d'autre system
 
-##HTML/CSS
+## HTML/CSS
 
 * Bulma  
 * personal navbar menu with some js for the button
