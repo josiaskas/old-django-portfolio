@@ -2,6 +2,7 @@
 {% extends 'layout/main.html' %}
 {% load static %}
 {% block title %} {{project.name}} {% endblock %}
+{% block top_scripts %} {% endblock %}
 {% block content %}
 <section  class="hero is-fullheight">
     <div class="hero-head">
@@ -18,12 +19,19 @@
                             <li><a href="#">{{ project.name }}</a></li>
                         </ul>
                     </nav>
-                    <div class="content">
-                        {{project.content}}
+                    <div id="markdownContent" class="content">
+                        {{project.content | linebreaks}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+{% endblock %}
+{% block body_scripts %}
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>     
+    document.getElementById('markdownContent').innerHTML =
+      marked('# Marked in the browser\n\nRendered by **marked**.');
+    </script>
 {% endblock %}
