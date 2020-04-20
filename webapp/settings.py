@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '^vh&45)vodwwnzg1p@l#v#pfmihw-n(^v5+@2f#bn*nha^6gyl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['178.128.238.24','localhost']
 
@@ -138,6 +138,9 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'public/')
 
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 #Mail settings
 
 EMAIL_HOST = 'smtp.mailtrap.io'
