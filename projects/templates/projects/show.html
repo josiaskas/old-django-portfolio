@@ -13,7 +13,10 @@
         <div class="container">
             <div class="columns is-centered">
                 <div class="column is-8">
-                    <h1 class="title"> {{ project.name }} </h1>
+                    <h1 class="title"> {{ project.name }}  </h1>
+                        <figure class="image is-128x128">
+                            <img src="{{project.logo_picture.url}}" alt="logo compagnie">
+                        </figure>
                     <time> Fait le {{project.realease_date}}</time>
                     <nav class="breadcrumb" aria-label="breadcrumbs">
                         <ul>
