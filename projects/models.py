@@ -11,9 +11,8 @@ class Tag(models.Model):
 
 class Project(models.Model):
     name = models.CharField(verbose_name="Nom",max_length=40)
-    picture = models.CharField("image", max_length=200)
-    logo_picture = models.URLField("logo image",max_length=200, null=True, blank=True)
-
+    picture = models.ImageField("Image", upload_to="projects/", height_field=None, width_field=None, max_length=None)
+    logo_picture = models.ImageField("logo", upload_to="projects/", height_field=None, width_field=None, max_length=None, null=True, blank=True)
     excerpt = models.CharField("extrait", max_length=300, default="A simple project")
     content = models.TextField("contenue")
 

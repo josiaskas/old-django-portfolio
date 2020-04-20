@@ -96,14 +96,14 @@
                             <div class="card">
                                 <div class="card-image">
                                     <figure class="image">
-                                        <img src="{% static project.picture %}" alt="aperçu du site">
+                                        <img src="{{ project.picture.url }}" alt="aperçu du site">
                                     </figure>
                                 </div>
                                 <div class="card-content">
                                     <div class="media">
                                         <div class="media-left">
                                             <figure class="image is-48x48">
-                                                <img src="{{project.logo_picture}}" alt="logo compagnie">
+                                                <img src="{{project.logo_picture.url}}" alt="logo compagnie">
                                             </figure>
                                         </div>
                                         <div class="media-content">
