@@ -66,7 +66,7 @@ def contact(request):
     return render(request,'contact.html',context)
 
 def projectsIndex(request): 
-    query = request.GET.get('query')
+    query = request.GET.get('q')
     message = 'no search'
     search_succes = False
 
@@ -77,12 +77,12 @@ def projectsIndex(request):
         #first we search by project name
         projects_list = Project.objects.filter(name__icontains = query)
         search_succes = True
-        message = 'search made and {} found'.format(len(projects_list))
+        message = 'search made with "{}" and {} found'.format(query,len(projects_list))
 
         #if fnothing we search by excerpt
         if not projects_list.exists():
             projects_list = Project.objects.filter(excerpt__icontains = query)
-            message = 'search made and {} found'.format(len(projects_list))
+            message = 'search made with "{}" and {} found'.format(query,len(projects_list))
             #if nothing we just return a sorry message
             if not projects_list.exists():
                 projects_list = Project.objects.filter(published=True)
@@ -122,3 +122,6 @@ def projectsShow(request,slug):
         'project' : project,
     }
     return render(request,'projects/show.html',context)
+
+def test(request):
+    return render(request,'404.html',{'test':True})

@@ -14,7 +14,7 @@
                     <form  action="{% url 'projects.index' %}" class="column">
                         <div class="field">
                             <div class="control  has-icons-right">
-                                <input class="input" name="query" type="search" placeholder="Chercher un projet">
+                                <input class="input" name="q" type="search" placeholder="Chercher un projet">
                                 <span class="icon is-small is-right">
                                     <i class="fas fa-search "></i>
                                 </span>
@@ -69,13 +69,18 @@
                 </div>
             </div>
             <div class="columns is-centered">
-                <nav class="pagination" role="pagination" aria-label="pagination">
+                <nav class="pagination is-right" role="navigation" aria-label="pagination">
                         {% if projects.has_previous %}
-                            <a class="pagination-next" href="?page={{ projects.previous_page_number }}">Previous</a>
+                            <a class="pagination-next" href="?page={{ projects.previous_page_number}}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Previous</a>
                         {% endif %}
                         {% if projects.has_next %}
-                            <a class="pagination-next" href="?page={{ projects.next_page_number }}">Next page</a>
+                            <a class="pagination-next" href="?page={{ projects.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Next page</a>
                         {% endif %}
+                    <ul class="pagination-list">
+                        {% for page in projects.paginator.page_range %}
+                            <li><a class="pagination-link" aria-label="Goto page {{page}}" href="?page={{page}}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{page}}</a></li>
+                        {% endfor %}
+                    </ul>
                 </nav>
             </div>
         </div>
