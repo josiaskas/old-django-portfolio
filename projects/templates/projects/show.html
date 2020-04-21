@@ -2,15 +2,22 @@
 {% extends 'layout/main.html' %}
 {% load static %}
 {% block title %} {{project.name}} {% endblock %}
+{% block top_scripts %} 
+
+{% endblock %}
 {% block content %}
-<section  class="hero is-fullheight">
+<section  class="hero is-fullheight is-fullheight">
     <div class="hero-head">
+    <br />
     </div>
     <div class="hero-body">
         <div class="container">
             <div class="columns is-centered">
                 <div class="column is-8">
-                    <h1 class="title"> {{ project.name }} </h1>
+                    <h1 class="title"> {{ project.name }}  </h1>
+                        <figure class="image is-128x128">
+                            <img src="{{project.logo_picture.url}}" alt="logo compagnie">
+                        </figure>
                     <time> Fait le {{project.realease_date}}</time>
                     <nav class="breadcrumb" aria-label="breadcrumbs">
                         <ul>
@@ -18,7 +25,7 @@
                             <li><a href="#">{{ project.name }}</a></li>
                         </ul>
                     </nav>
-                    <div class="content">
+                    <div class="content markdownContent">
                         {{project.content}}
                     </div>
                 </div>
@@ -26,4 +33,18 @@
         </div>
     </div>
 </section>
+{% endblock %}
+{% block body_scripts %}
+    <script src="https://code.jquery.com/jquery-3.5.0.slim.min.js"
+		integrity="sha256-MlusDLJIP1GRgLrOflUQtshyP0TwT/RHXsI1wWGnQhs=" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>     
+    $(document).ready(()=>{
+        $('.markdownContent').each(function(){
+            let parsed_md =marked($(this).text())
+            $(this).html(parsed_md) 
+        })
+    })
+    </script>
 {% endblock %}
