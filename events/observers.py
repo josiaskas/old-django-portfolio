@@ -44,8 +44,8 @@ class MailAdminNotification(Observer):
     
     """
     ADMIN_NAME = 'Josias Kasongo'
-    ADMIN_MAIL = 'admin@test.com'
-    PLATFORM_MAIL = 'system@josiaskasongo.com'
+    ADMIN_MAIL = 'admin@josiaskasongo.com'
+    PLATFORM_MAIL = 'admin@josiaskasongo.com'
 
     def __init__(self):
         self.name = 'Admin_mailler'
