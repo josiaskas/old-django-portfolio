@@ -33,12 +33,15 @@ ALLOWED_HOSTS = ['localhost','178.128.238.24','josiaskasongo.com','www.josiaskas
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'projects',
-    'events'
+    'events',
+    'robots',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +55,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'webapp.urls'
+
+SITE_ID = 1
 
 TEMPLATES = [
     {

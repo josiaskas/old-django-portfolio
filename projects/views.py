@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Project, Article, Podcast, Book, Contact
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib.sites.shortcuts import get_current_site
 from .forms import ContactForm
 
 #event
@@ -117,11 +118,14 @@ def projectsIndex(request):
     return render(request,'projects/index.html',context)
 
 def projectsShow(request,slug):
+
     project = get_object_or_404(Project,slug=slug)
     context = {
+        'site_web' : get_current_site(request).domain,
         'project' : project,
     }
     return render(request,'projects/show.html',context)
 
 def test(request):
     return render(request,'404.html',{'test':True})
+
