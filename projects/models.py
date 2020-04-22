@@ -3,7 +3,7 @@ from django.db import models
 from django.utils import timezone
 from django.utils.text import slugify
 from django.urls import reverse
-from meta.models import ModelMeta
+
 # Create your models here.
 
 class Tag(models.Model):
