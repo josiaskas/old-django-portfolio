@@ -1,6 +1,28 @@
 {% extends 'layout/main.html' %}
 {% load static %}
-{% block title %} Les projet {% endblock %}
+{% block title %} Projects and Portfolio {% endblock %}
+
+{% block meta_content %}
+<!-- Description -->
+	<meta name="description" content="Freelance projects and personal apps made."/>
+	<meta name="keywords"  content="josias,kasongo,josias kasongo,josias musthaila,portfolio,github,project,app,dev,code,wordpress,CMS, Ios App,inquiry,Laravel,Django,freelance,info, plan"/>
+	<meta name="Resource-type" content="Document"/>
+<!-- Open Graph data -->		
+	<meta property="og:site_name" content="Josias Kasongo | Full-stack Web Developer & Preacher"/>
+	<meta property="og:title" content="Josias Kasongo | Project - Portfolio" />
+	<meta property="og:description" content="Freelance projects and personal apps"/>
+	<meta property="og:image" content="https://josiaskasongo.com/media/thumbnail/index.png" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://{{site_web}}{% url 'projects.index'  %}" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@josiaskas">
+    <meta name="twitter:creator" content="@josiaskas">
+    <meta name="twitter:title" content="Josias Kasongo | Project - Portfolio">
+    <meta name="twitter:description" content="Freelance projects and personal apps made">
+    <meta name="twitter:image" content="https://josiaskasongo.com/media/thumbnail/index.png">
+    <meta name="twitter:image:alt" content="Josias Kasongo">
+{% endblock %}
+
 {% block content %}
 <section class="hero is-fullheight">
     <div class="hero-head">
@@ -10,7 +32,7 @@
         <div class="container">
             <div class="columns is-centered">
                 <div class="column is-6">
-                    <h1 class="title has-text-centered"> Projets Freelance et personnels</h1>
+                    <h1 class="title has-text-centered"> Freelance projects and personal apps</h1>
                     <form  action="{% url 'projects.index' %}" class="column">
                         <div class="field">
                             <div class="control  has-icons-right">

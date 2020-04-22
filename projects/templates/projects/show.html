@@ -2,6 +2,28 @@
 {% extends 'layout/main.html' %}
 {% load static %}
 {% block title %} {{project.name}} {% endblock %}
+
+{% block meta_content %}
+<!-- Description -->
+	<meta name="description" content="{{project.excerpt }}"/>
+	<meta name="keywords"  content="josias,kasongo,josias kasongo,css, PhP, Laravel, Django, Javascript, Vue.js, Angular, app, Web site, Blog, Json, RESTapi"/>
+	<meta name="Resource-type" content="Document"/>
+<!-- Open Graph data -->		
+	<meta property="og:site_name" content="Josias Kasongo | Full-stack Web Developer & Preacher"/>
+	<meta property="og:title" content="Josias Kasongo | {{project.name}}" />
+	<meta property="og:description" content="{{project.excerpt }}"/>
+	<meta property="og:image" content="https://{{site_web}}{{project.logo_picture.url}}" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://{{site_web}}{% url 'projects.show' project.slug  %}" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@josiaskas">
+    <meta name="twitter:creator" content="@josiaskas">
+    <meta name="twitter:title" content="Josias Kasongo | {{project.name}}">
+    <meta name="twitter:description" content="{{project.excerpt }}">
+    <meta name="twitter:image" content="https://{{site_web}}{{project.logo_picture.url}}">
+    <meta name="twitter:image:alt" content="{{project.name}}">
+{% endblock %}
+
 {% block top_scripts %} 
 
 {% endblock %}

@@ -1,7 +1,9 @@
 import datetime
 from django.db import models
 from django.utils import timezone
-
+from django.utils.text import slugify
+from django.urls import reverse
+from meta.models import ModelMeta
 # Create your models here.
 
 class Tag(models.Model):
@@ -17,14 +19,25 @@ class Project(models.Model):
     content = models.TextField("contenue")
 
     url = models.URLField("Url vers le projet", max_length=200)
-    slug = models.CharField("slug",max_length=100,unique=True)
+    slug = models.SlugField("slug", blank=True)
 
     featured = models.BooleanField("en vedette", default=False)
     published = models.BooleanField("publié", default=False)
     tags =  models.ManyToManyField(Tag, related_name='projects')
     realease_date = models.DateField(verbose_name="Date de livraison")
+
     def __str__(self):
         return self.name
+    
+    def save(self, *args, **kwargs):
+        if not self.id:
+            # Newly created object, so set slug
+            self.slug = slugify(self.name)
+            super(Project,self).save()
+
+    def get_absolute_url(self):
+        return reverse('projects.show', kwargs={"slug": self.slug})
+    
 
     def was_release_this_year(self):
         return self.realease_date >= timezone.now() - datetime.timedelta(year=1)
