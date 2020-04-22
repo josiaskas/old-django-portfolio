@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '^vh&45)vodwwnzg1p@l#v#pfmihw-n(^v5+@2f#bn*nha^6gyl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost','178.128.238.24','josiaskasongo.com','www.josiaskasongo.com']
 
@@ -146,11 +146,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'public/')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
 #Mail settings
 
-EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = '16488deaf3ccbc'
-EMAIL_HOST_PASSWORD = '8305d29a3ed1f0'
-EMAIL_PORT = '2525'
-EMAIL_USE_TLS: False
-EMAIL_USE_SSL: False
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'admin@josiaskasongo.com'
+EMAIL_HOST_PASSWORD = 'twof0tosm!SKUH'
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
