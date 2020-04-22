@@ -31,8 +31,10 @@ class Project(models.Model):
     
     def save(self, *args, **kwargs):
         if not self.id:
-            # Newly created object, so set slug
+            # Newly created object, so set slug to keep links in order
             self.slug = slugify(self.name)
+            super(Project,self).save()
+        else :
             super(Project,self).save()
 
     def get_absolute_url(self):
