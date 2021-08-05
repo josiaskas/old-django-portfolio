@@ -1,7 +1,11 @@
-# portfolio
+# Old - portfolio
 ![Django CI](https://github.com/josiaskas/portfolio/workflows/Django%20CI/badge.svg)
 
 My personal portfolio project made with Django and bulma for Css
+
+# ATTENTION(Probleme de securité, pas a jour)
+- les bots remplissent les formulaires. 
+
 
 ## Django
 
