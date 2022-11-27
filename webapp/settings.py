@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '^vh&45)vodwwnzg1p@l#v#pfmihw-n(^v5+@2f#bn*nha^6gyl'
+SECRET_KEY = os.environ.get('APP_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost','178.128.238.24','josiaskasongo.com','www.josiaskasongo.com']
+ALLOWED_HOSTS = ['localhost', 'josiaskasongo.com','www.josiaskasongo.com']
 
 
 # Application definition
@@ -92,8 +92,8 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'portfolio',
-            'USER': 'josias',
-            'PASSWORD': 'plateau_signify_cyprian_snick',
+            'USER': os.environ.get('DB_USER'),
+            'PASSWORD': os.environ.get('DB_PASSWORD'),
             'HOST': 'localhost',
             'PORT': '',
         }
@@ -150,8 +150,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 #Mail settings
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'admin@josiaskasongo.com'
-EMAIL_HOST_PASSWORD = 'twof0tosm!SKUH'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_APP_PASSWORD_USER')
 EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False

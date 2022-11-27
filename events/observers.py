@@ -1,3 +1,5 @@
+import os
+
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
@@ -44,8 +46,8 @@ class MailAdminNotification(Observer):
     
     """
     ADMIN_NAME = 'Josias Kasongo'
-    ADMIN_MAIL = 'admin@josiaskasongo.com'
-    PLATFORM_MAIL = 'admin@josiaskasongo.com'
+    ADMIN_MAIL = os.environ.get('ADMIN_MAIL')
+    PLATFORM_MAIL = os.environ.get('ADMIN_MAIL')
 
     def __init__(self):
         self.name = 'Admin_mailler'
@@ -78,7 +80,7 @@ class MailAdminNotification(Observer):
            'budget':budget,
            'details':details
         }
-        html_message = render_to_string('adminMail.html',context)
+        html_message = render_to_string('adminMail.html', context)
         plain_message = strip_tags(html_message)
         return (html_message, plain_message)
 
@@ -92,14 +94,14 @@ class MailAdminNotification(Observer):
         pass
 
 class MailNotification(Observer):
-    INFO_MAIL = 'info@josiaskasongo.com'
+    INFO_MAIL = os.environ.get('ADMIN_MAIL')
     def __init__(self):
         self.name = 'mailler'
-        self.state= [self.name,'ready']
+        self.state= [self.name, 'ready']
         self.work_done = False
         pass
 
-    def update(self, *args, name=False, budget=False, project_type= False, email=False, **kwargs):
+    def update(self, *args, name=False, budget=False, project_type=False, email=False, **kwargs):
         """ Sending Mail to aknowledge that we receive the message
         name (str) : name of the client
         budget (int) : amount for the project
@@ -123,14 +125,14 @@ class MailNotification(Observer):
         return self.work_done
 
     def buildHtml(self, name, budget, project_type):
-        context ={
-           'name' : name,
-           'project_type' : project_type,
-           'budget':budget
+        context = {
+           'name': name,
+           'project_type': project_type,
+           'budget': budget
         }
-        html_message = render_to_string('thanksMail.html',context)
+        html_message = render_to_string('thanksMail.html', context)
         plain_message = strip_tags(html_message)
-        return (html_message,plain_message)
+        return (html_message, plain_message)
 
     def send(self, to, html):
         subject = 'Thank you for contacting us' 
@@ -147,21 +149,21 @@ class DataBaseNotification(Observer):
         self.work_done = False
         pass
     
-    def update(self, *args, notifiyer=False, event=False, users= False, **kwargs):
+    def update(self, *args, notifier=False, event=False, users= False, **kwargs):
         self.state[1] = 'listening'
 
         #can't send empty messages to people
         verifyed = True
 
-        if False in [notifiyer, event, users]:
+        if False in [notifier, event, users]:
             verifyed = False
 
         if verifyed:
-            self.write_data(notifiyer, event, users)
+            self.write_data(notifier, event, users)
 
         return self.work_done
 
-    def write_data(self, notifiyer, event, users):
+    def write_data(self, notifier, event, users):
 
         self.work_done = True
         pass

@@ -36,7 +36,7 @@ class ListeningTestCase(TestCase):
         MailEcouteur = MailAdminNotification()
         bruit.register(MailEcouteur)
         mail ={
-            'name': 'Admin tesing system',
+            'name': 'Admin testing system',
             'budget' : 300,
             'project_type': 'Testing if admin can listen',
             'details' : 'details'

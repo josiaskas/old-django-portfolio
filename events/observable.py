@@ -78,6 +78,3 @@ class EventHandler(Observable):
 
         return ['console']
 
-
-            
-       

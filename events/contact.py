@@ -24,7 +24,7 @@ class ContactMadeEvent(EventHandler):
         
         pass
     def via(self):
-        return ['mail','admin_mail' ,'console'] 
+        return ['mail', 'admin_mail' , 'console']
 
 
 
