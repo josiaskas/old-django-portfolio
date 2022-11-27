@@ -4,8 +4,8 @@
 OLD
 My personal project made to  learn Django and bulma
 
-# ATTENTION(Probleme de securité, pas a jour et non maintenu)
-- * les bots peuvent aussi remplirent les formulaires.
+### ATTENTION(Probleme de securité, pas a jour et non maintenu)
+* les bots peuvent aussi remplirent les formulaires.
     
 
 ## Django
